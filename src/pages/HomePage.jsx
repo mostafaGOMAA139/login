@@ -3,6 +3,9 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 
 
+
+
+
 export default function HomePage() {
     const navigate =useNavigate();
     const [userInfo,setuserInfo]= useState({});
@@ -16,7 +19,7 @@ export default function HomePage() {
             let url = domain +endpoint
             axios.get(url,{
                 headers:{
-                  Authorization:'Bearer ${jwt}',
+                  Authorization:`Bearer ${jwt}`,
                 },
             }).then((res)=>{
               setuserInfo(res.data);
@@ -33,7 +36,8 @@ export default function HomePage() {
               navigate('/login'); 
     }
   return (
-    <div>
+    <div className="">
+      
       <h1>welcome {userInfo.username } to the Home page</h1>
       <button className="btn btn-error" onClick={logout} >logOut</button>
       </div>
